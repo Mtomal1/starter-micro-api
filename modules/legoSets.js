@@ -10,11 +10,8 @@ let sequelize = new Sequelize(
     host: process.env.DB_HOST,
     dialect: "postgres",
     port: 5432,
-    ssl: process.env.DB_ENABLE_SSL,
     dialectOptions: {
-      ssl: process.env.DB_ENABLE_SSL && {
-        require: true
-      }
+      ssl: { rejectUnauthorized: false },
     },
   }
 );
